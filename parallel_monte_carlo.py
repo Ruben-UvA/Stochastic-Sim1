@@ -38,11 +38,11 @@ def monte_carlo_multi(samples=2000000, max_iter=100, xrange=(-2, 1.5), yrange=(-
     total_inside = sum(results)
     mandel_area = (total_inside / samples) * region_area
 
-    return mandel_area
+    return mandel_area, total_inside
 
 if __name__ == '__main__':
     start = time.time()
-    area = monte_carlo_multi(samples=2000000, max_iter=100, processes=1)
+    area, total_inside = monte_carlo_multi(samples=2000000, max_iter=100, processes=1)
     print(f"area: {area}")
     stop = time.time()
     print(f"Total time: {stop-start}")
